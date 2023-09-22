@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Sidebar from './components/Sidebar';
+import BarChart from './components/BarChart';
+import LineChart from './components/LineChart';
+import PieChart from './components/PieChart';
 
 function App() {
+  const [activeChart, setActiveChart] = useState(null);
+
+  const handleChartClick = (chartName) => {
+    setActiveChart(chartName);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="dashboard">
+      <Sidebar onChartClick={handleChartClick} activeChart={activeChart} />
+      <div className="section">
+        {activeChart === 'BarChart' && <BarChart />}
+        {activeChart === 'LineChart' && <LineChart />}
+        {activeChart === 'PieChart' && <PieChart />}
+        {/* Add more sections for additional charts */}
+      </div>
     </div>
   );
 }

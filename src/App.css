@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* Reset some default browser styles */
+body, h1, h2, ul, li {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Define a common background color for the dashboard */
+.dashboard {
+  display: grid;
+  grid-template-columns: 200px auto; /* Sidebar and content area */
+  height: 100vh; /* Make the dashboard fill the entire viewport height */
+  background-color: #f0f0f0; /* Adjust to your preferred background color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Style the sidebar */
+.sidebar {
+  background-color: #333; /* Sidebar background color */
+  color: #fff; /* Text color */
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Style the sidebar heading */
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the sidebar list */
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Style sidebar list items */
+.sidebar li {
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Highlight the selected item */
+.sidebar li:hover {
+  background-color: #444;
+}
+
+/* Style the sections in the content area */
+.section {
+  padding: 20px;
+  background-color: #fff; /* Content area background color */
 }
